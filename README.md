@@ -2,7 +2,7 @@
 
 A revision web app for **AQA GCSE Combined Science Trilogy, Foundation tier**. Covers biology, chemistry and physics with lessons, tests, mistake review, progress tracking and a streak counter. Built for Nevaeh, but happy to be used by anyone studying the same spec.
 
-Live: **https://nevaaehhx.github.io/chemistry-revision/**
+Live: **https://nevaaehhx.github.io/combined-science-revision/**
 
 ## What's inside
 
