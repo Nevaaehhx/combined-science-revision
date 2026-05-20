@@ -145,7 +145,28 @@ window.CONTENT_CHEMISTRY = (function () {
         { h: "Covalent bonding",
           body: ["Covalent bonds form between <strong>non-metal atoms</strong>. The atoms <strong>share</strong> a pair of electrons.",
                  "Each shared pair counts as one covalent bond. Some molecules have single bonds, some have double or triple bonds.",
-                 "Examples: H2 (hydrogen molecule), H2O (water), CO2 (carbon dioxide), CH4 (methane)."] },
+                 "Examples: H2 (hydrogen molecule), H2O (water), CO2 (carbon dioxide), CH4 (methane)."],
+          diagram: {
+            alt: 'Water molecule shown as a dot-and-cross diagram with oxygen sharing two pairs of electrons with hydrogens',
+            caption: 'Water (H&#8322;O), dot-and-cross. Oxygen shares one pair of electrons with each hydrogen.',
+            svg: '<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">' +
+              '<circle cx="180" cy="110" r="55" fill="none" stroke="#c2410c" stroke-width="1.5"/>' +
+              '<text x="180" y="115" text-anchor="middle" font-size="20" fill="#c2410c" font-weight="700">O</text>' +
+              '<text x="180" y="55" text-anchor="middle" font-size="16" fill="#c2410c">&times; &times;</text>' +
+              '<text x="180" y="180" text-anchor="middle" font-size="16" fill="#c2410c">&times; &times;</text>' +
+              '<text x="125" y="115" text-anchor="middle" font-size="16" fill="#c2410c">&times;</text>' +
+              '<text x="235" y="115" text-anchor="middle" font-size="16" fill="#c2410c">&times;</text>' +
+              '<circle cx="80" cy="110" r="30" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<text x="80" y="115" text-anchor="middle" font-size="18" fill="#1d4ed8" font-weight="700">H</text>' +
+              '<text x="115" y="115" text-anchor="middle" font-size="16" fill="#1d4ed8">&bull;</text>' +
+              '<circle cx="280" cy="110" r="30" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<text x="280" y="115" text-anchor="middle" font-size="18" fill="#1d4ed8" font-weight="700">H</text>' +
+              '<text x="245" y="115" text-anchor="middle" font-size="16" fill="#1d4ed8">&bull;</text>' +
+              '<text x="55" y="40" font-size="10" fill="#1d4ed8" font-weight="600">&bull; = hydrogen electron</text>' +
+              '<text x="55" y="200" font-size="10" fill="#c2410c" font-weight="600">&times; = oxygen electron</text>' +
+              '<text x="180" y="210" text-anchor="middle" font-size="10" fill="#4a5165" font-style="italic">Each shared pair = one covalent bond. Oxygen now has 8 outer electrons.</text>' +
+            '</svg>'
+          } },
         { h: "Simple molecular substances",
           body: ["Small molecules like water, oxygen and methane have:",
                  "<ul><li><strong>Strong covalent bonds INSIDE the molecules</strong></li><li><strong>Weak forces BETWEEN the molecules</strong> (called intermolecular forces)</li></ul>",
@@ -259,7 +280,31 @@ window.CONTENT_CHEMISTRY = (function () {
                  "<ul><li><strong>Cathode</strong> = negative electrode. Positive ions go here, gain electrons, become atoms.</li><li><strong>Anode</strong> = positive electrode. Negative ions go here, lose electrons, become atoms.</li></ul>",
                  "Memory trick: <strong>P</strong>ositive ions go to <strong>N</strong>egative cathode (opposite charges attract).",
                  "Example: Electrolysis of molten lead bromide (PbBr2):",
-                 "<ul><li>Cathode: Pb2+ ions gain electrons, become lead metal</li><li>Anode: Br- ions lose electrons, become bromine gas</li></ul>"] }
+                 "<ul><li>Cathode: Pb2+ ions gain electrons, become lead metal</li><li>Anode: Br- ions lose electrons, become bromine gas</li></ul>"],
+          diagram: {
+            alt: 'Electrolysis of molten lead bromide showing cathode and anode in a heated container',
+            caption: 'Electrolysis of molten PbBr&#8322;. Pb&#178;&#8314; goes to the cathode (becomes lead). Br&#8315; goes to the anode (becomes bromine gas).',
+            svg: '<svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M 100 80 L 100 200 Q 100 220 120 220 L 300 220 Q 320 220 320 200 L 320 80" fill="#fef3c7" stroke="#1a1f2e" stroke-width="2"/>' +
+              '<rect x="60" y="30" width="80" height="14" fill="#4a5165"/>' +
+              '<text x="100" y="22" text-anchor="middle" font-size="11" fill="#1d4ed8" font-weight="700">&minus; cathode</text>' +
+              '<text x="100" y="58" text-anchor="middle" font-size="9" fill="#4a5165">(graphite)</text>' +
+              '<line x1="100" y1="44" x2="100" y2="180" stroke="#4a5165" stroke-width="4"/>' +
+              '<rect x="280" y="30" width="80" height="14" fill="#4a5165"/>' +
+              '<text x="320" y="22" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="700">+ anode</text>' +
+              '<text x="320" y="58" text-anchor="middle" font-size="9" fill="#4a5165">(graphite)</text>' +
+              '<line x1="320" y1="44" x2="320" y2="180" stroke="#4a5165" stroke-width="4"/>' +
+              '<path d="M 60 37 Q 30 37 30 90 L 30 130 Q 30 150 50 150 L 370 150 Q 390 150 390 130 L 390 90 Q 390 37 360 37" fill="none" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<rect x="190" y="135" width="40" height="30" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1"/>' +
+              '<text x="210" y="155" text-anchor="middle" font-size="10" fill="#1a1f2e">DC</text>' +
+              '<text x="210" y="100" text-anchor="middle" font-size="11" fill="#c2410c" font-weight="600">molten PbBr&#8322;</text>' +
+              '<text x="210" y="120" text-anchor="middle" font-size="10" fill="#c2410c">Pb&#178;&#8314; and Br&#8315; ions free to move</text>' +
+              '<text x="55" y="200" font-size="9" fill="#1d4ed8" font-weight="600">Pb (metal forms here)</text>' +
+              '<text x="282" y="200" font-size="9" fill="#b91c1c" font-weight="600">Br&#8322; gas off</text>' +
+              '<line x1="120" y1="220" x2="300" y2="220" stroke="#a16207" stroke-width="4"/>' +
+              '<text x="210" y="234" text-anchor="middle" font-size="9" fill="#a16207" font-style="italic">heat</text>' +
+            '</svg>'
+          } }
       ],
       keyPoints: [
         "Acid + alkali → salt + water (neutralisation)",
@@ -395,7 +440,35 @@ window.CONTENT_CHEMISTRY = (function () {
                  "<strong>How it works:</strong>",
                  "<ul><li>Heat the crude oil so all of it evaporates</li><li>Send the vapour into a tall column that is HOT at the bottom and COOL at the top</li><li>Different hydrocarbons have different <strong>boiling points</strong>. Longer chain = higher boiling point.</li><li>As the vapour rises, each fraction condenses at the level where the temperature matches its boiling point</li><li>The fractions are tapped off at different heights</li></ul>",
                  "Fractions you should know (from bottom to top, longest to shortest chains):",
-                 "<ul><li>Bitumen (roads)</li><li>Heavy fuel oil (ships, power stations)</li><li>Diesel (lorries, some cars)</li><li>Kerosene (jet planes)</li><li>Petrol (cars)</li><li>LPG / gases (heating, cooking)</li></ul>"] },
+                 "<ul><li>Bitumen (roads)</li><li>Heavy fuel oil (ships, power stations)</li><li>Diesel (lorries, some cars)</li><li>Kerosene (jet planes)</li><li>Petrol (cars)</li><li>LPG / gases (heating, cooking)</li></ul>"],
+          diagram: {
+            alt: 'Fractional distillation column with fractions labelled by height, cool at top, hot at bottom',
+            caption: 'Fractional distillation column. Shortest chains rise highest and condense at the top.',
+            svg: '<svg viewBox="0 0 420 290" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M 160 30 L 260 30 L 280 270 L 140 270 Z" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="155" y1="60"  x2="265" y2="60"  stroke="#1a1f2e" stroke-width="0.8"/>' +
+              '<line x1="153" y1="100" x2="267" y2="100" stroke="#1a1f2e" stroke-width="0.8"/>' +
+              '<line x1="151" y1="140" x2="269" y2="140" stroke="#1a1f2e" stroke-width="0.8"/>' +
+              '<line x1="148" y1="180" x2="272" y2="180" stroke="#1a1f2e" stroke-width="0.8"/>' +
+              '<line x1="145" y1="220" x2="275" y2="220" stroke="#1a1f2e" stroke-width="0.8"/>' +
+              '<text x="290" y="45" font-size="10" fill="#1d4ed8" font-weight="600">LPG / gases</text>' +
+              '<text x="290" y="80" font-size="10" fill="#1d4ed8" font-weight="600">Petrol</text>' +
+              '<text x="290" y="120" font-size="10" fill="#a16207" font-weight="600">Kerosene (jet)</text>' +
+              '<text x="290" y="160" font-size="10" fill="#a16207" font-weight="600">Diesel</text>' +
+              '<text x="290" y="200" font-size="10" fill="#c2410c" font-weight="600">Heavy fuel oil</text>' +
+              '<text x="290" y="240" font-size="10" fill="#c2410c" font-weight="600">Bitumen (roads)</text>' +
+              '<text x="80" y="40" font-size="11" fill="#1d4ed8" font-weight="700">COOL</text>' +
+              '<text x="80" y="55" font-size="9" fill="#1d4ed8">short chains</text>' +
+              '<text x="80" y="68" font-size="9" fill="#1d4ed8">low BP</text>' +
+              '<text x="80" y="260" font-size="11" fill="#b91c1c" font-weight="700">HOT</text>' +
+              '<text x="80" y="275" font-size="9" fill="#b91c1c">long chains</text>' +
+              '<text x="80" y="288" font-size="9" fill="#b91c1c">high BP</text>' +
+              '<path d="M 50 270 L 140 270" stroke="#b91c1c" stroke-width="2"/>' +
+              '<text x="20" y="270" font-size="10" fill="#b91c1c">crude oil in</text>' +
+              '<path d="M 200 280 L 200 270" stroke="#b91c1c" stroke-width="2"/>' +
+              '<text x="160" y="288" font-size="9" fill="#b91c1c" font-style="italic">heated to vapour</text>' +
+            '</svg>'
+          } },
         { h: "Combustion",
           body: ["When hydrocarbons burn, they react with oxygen. This is called <strong>combustion</strong> and it's always exothermic.",
                  "<strong>Complete combustion</strong> (plenty of oxygen):",
@@ -483,7 +556,33 @@ window.CONTENT_CHEMISTRY = (function () {
                  "<strong>The main greenhouse gases:</strong>",
                  "<ul><li>Carbon dioxide (CO2)</li><li>Methane (CH4)</li><li>Water vapour (H2O)</li></ul>",
                  "<strong>How the greenhouse effect works:</strong>",
-                 "<ul><li>Short-wave radiation from the sun passes through the atmosphere and warms the Earth</li><li>The Earth re-emits this energy as long-wave (infrared) radiation</li><li>Greenhouse gases absorb this infrared radiation, trapping the heat</li><li>Some heat escapes, but more is trapped if there are more greenhouse gases</li></ul>"] },
+                 "<ul><li>Short-wave radiation from the sun passes through the atmosphere and warms the Earth</li><li>The Earth re-emits this energy as long-wave (infrared) radiation</li><li>Greenhouse gases absorb this infrared radiation, trapping the heat</li><li>Some heat escapes, but more is trapped if there are more greenhouse gases</li></ul>"],
+          diagram: {
+            alt: 'Greenhouse effect: short-wave radiation from the sun is absorbed by the Earth, long-wave infrared is emitted back and partly trapped by greenhouse gases',
+            caption: 'Greenhouse effect: short-wave in, long-wave out. Greenhouse gases trap some of the long-wave radiation.',
+            svg: '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg">' +
+              '<circle cx="80" cy="50" r="22" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>' +
+              '<text x="80" y="55" text-anchor="middle" font-size="11" fill="#c2410c" font-weight="700">Sun</text>' +
+              '<ellipse cx="230" cy="220" rx="180" ry="40" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>' +
+              '<text x="230" y="225" text-anchor="middle" font-size="12" fill="#15803d" font-weight="600">Earth</text>' +
+              '<path d="M 75 130 Q 76 130 76 130" stroke="none"/>' +
+              '<path d="M 100 70 L 220 170" stroke="#eab308" stroke-width="2" marker-end="url(#sr1)"/>' +
+              '<path d="M 105 80 L 245 170" stroke="#eab308" stroke-width="2" marker-end="url(#sr1)"/>' +
+              '<defs><marker id="sr1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#eab308"/></marker></defs>' +
+              '<text x="135" y="100" font-size="10" fill="#eab308" font-weight="600">short-wave (visible)</text>' +
+              '<line x1="40" y1="110" x2="430" y2="110" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4"/>' +
+              '<text x="40" y="105" font-size="9" fill="#1d4ed8" font-weight="600">greenhouse gas layer (CO&#8322;, CH&#8324;, H&#8322;O)</text>' +
+              '<path d="M 280 170 Q 320 130 360 110" stroke="#b91c1c" stroke-width="2" marker-end="url(#lw1)"/>' +
+              '<defs><marker id="lw1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#b91c1c"/></marker></defs>' +
+              '<path d="M 320 100 Q 310 80 280 60" stroke="#b91c1c" stroke-width="2" marker-end="url(#lw1)"/>' +
+              '<text x="370" y="155" font-size="10" fill="#b91c1c" font-weight="600">long-wave</text>' +
+              '<text x="370" y="170" font-size="10" fill="#b91c1c" font-weight="600">(infrared)</text>' +
+              '<path d="M 250 110 Q 220 90 230 170" stroke="#4a5165" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#tr1)"/>' +
+              '<defs><marker id="tr1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#4a5165"/></marker></defs>' +
+              '<text x="160" y="155" font-size="9" fill="#4a5165" font-style="italic">some IR trapped</text>' +
+              '<text x="160" y="166" font-size="9" fill="#4a5165" font-style="italic">&rarr; warms Earth more</text>' +
+            '</svg>'
+          } },
         { h: "Why CO2 is rising",
           body: ["Human activities since the industrial revolution have INCREASED the amount of CO2 in the atmosphere.",
                  "<strong>Main sources of extra CO2:</strong>",

@@ -137,7 +137,33 @@ window.CONTENT_BIOLOGY = (function () {
                  "<ul><li><strong>Right atrium</strong> &rarr; receives deoxygenated blood from the body</li><li><strong>Right ventricle</strong> &rarr; pumps blood to the lungs</li><li><strong>Left atrium</strong> &rarr; receives oxygenated blood from the lungs</li><li><strong>Left ventricle</strong> &rarr; pumps blood around the body</li></ul>",
                  "The left ventricle has a thicker wall than the right because it has to pump blood much further (around the whole body, not just to the lungs).",
                  "Three types of blood vessel:",
-                 "<ul><li><strong>Arteries</strong> carry blood AWAY from the heart. Thick muscular walls to withstand high pressure.</li><li><strong>Capillaries</strong> are tiny, with one-cell-thick walls. Substances diffuse in and out here.</li><li><strong>Veins</strong> carry blood BACK to the heart. Thinner walls, wider lumen, have valves to stop backflow.</li></ul>"] },
+                 "<ul><li><strong>Arteries</strong> carry blood AWAY from the heart. Thick muscular walls to withstand high pressure.</li><li><strong>Capillaries</strong> are tiny, with one-cell-thick walls. Substances diffuse in and out here.</li><li><strong>Veins</strong> carry blood BACK to the heart. Thinner walls, wider lumen, have valves to stop backflow.</li></ul>"],
+          diagram: {
+            alt: 'Heart with four chambers labelled and major vessels marked',
+            caption: 'Heart in diagrammatic view: right side (deoxygenated, blue) sends blood to the lungs; left side (oxygenated, red) sends it round the body.',
+            svg: '<svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">' +
+              '<rect x="100" y="40" width="100" height="60" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<rect x="220" y="40" width="100" height="60" rx="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>' +
+              '<rect x="100" y="110" width="100" height="100" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2"/>' +
+              '<rect x="220" y="110" width="100" height="100" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="5"/>' +
+              '<text x="150" y="75" text-anchor="middle" font-size="11" fill="#1d4ed8" font-weight="600">Right atrium</text>' +
+              '<text x="270" y="75" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="600">Left atrium</text>' +
+              '<text x="150" y="155" text-anchor="middle" font-size="11" fill="#1d4ed8" font-weight="600">Right</text>' +
+              '<text x="150" y="170" text-anchor="middle" font-size="11" fill="#1d4ed8" font-weight="600">ventricle</text>' +
+              '<text x="270" y="155" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="600">Left</text>' +
+              '<text x="270" y="170" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="600">ventricle</text>' +
+              '<text x="270" y="195" text-anchor="middle" font-size="9" fill="#b91c1c" font-style="italic">(thicker wall)</text>' +
+              '<line x1="120" y1="40" x2="120" y2="20" stroke="#1d4ed8" stroke-width="3"/>' +
+              '<text x="80" y="18" font-size="10" fill="#1d4ed8">from body</text>' +
+              '<line x1="180" y1="40" x2="180" y2="20" stroke="#1d4ed8" stroke-width="3"/>' +
+              '<text x="200" y="18" font-size="10" fill="#1d4ed8">to lungs</text>' +
+              '<line x1="240" y1="40" x2="240" y2="20" stroke="#b91c1c" stroke-width="3"/>' +
+              '<text x="220" y="18" font-size="10" fill="#b91c1c">from lungs</text>' +
+              '<line x1="300" y1="40" x2="300" y2="20" stroke="#b91c1c" stroke-width="3"/>' +
+              '<text x="316" y="18" font-size="10" fill="#b91c1c">to body</text>' +
+              '<text x="210" y="245" text-anchor="middle" font-size="10" fill="#4a5165" font-style="italic">Left labels are on the right side of the diagram because the heart faces you.</text>' +
+            '</svg>'
+          } },
         { h: "Blood",
           body: ["Blood has four main components:",
                  "<ul><li><strong>Red blood cells</strong>, carry oxygen, have no nucleus to fit more haemoglobin, are biconcave for surface area</li><li><strong>White blood cells</strong>, fight infection, have a nucleus</li><li><strong>Platelets</strong>, small cell fragments that help clotting</li><li><strong>Plasma</strong>, the liquid part, carries CO<sub>2</sub>, urea, hormones, digested food and antibodies</li></ul>"] },
@@ -401,7 +427,37 @@ window.CONTENT_BIOLOGY = (function () {
           body: ["<strong>DNA</strong> is the molecule that carries genetic information. It's a long polymer of two strands twisted into a <strong>double helix</strong>.",
                  "DNA is organised into <strong>chromosomes</strong>. Humans have 23 pairs (46 chromosomes total) in every body cell. Gametes have 23 single chromosomes.",
                  "A <strong>gene</strong> is a short section of DNA that codes for a particular sequence of amino acids, which makes a particular protein. Different proteins do different jobs in the body, so genes ultimately decide what makes you 'you'.",
-                 "The whole DNA in an organism is its <strong>genome</strong>. The human genome has been completely sequenced. This helps us understand inherited disorders and develop better treatments."] },
+                 "The whole DNA in an organism is its <strong>genome</strong>. The human genome has been completely sequenced. This helps us understand inherited disorders and develop better treatments."],
+          diagram: {
+            alt: 'Hierarchy from cell to nucleus to chromosome to DNA double helix',
+            caption: 'Body cell &rarr; nucleus &rarr; chromosome &rarr; DNA double helix. A gene is a short section of DNA.',
+            svg: '<svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">' +
+              '<ellipse cx="55" cy="110" rx="40" ry="30" fill="#fef3c7" stroke="#c2410c" stroke-width="1.5"/>' +
+              '<circle cx="55" cy="110" r="14" fill="#fed7aa" stroke="#c2410c"/>' +
+              '<text x="55" y="170" text-anchor="middle" font-size="10" fill="#1a1f2e">cell</text>' +
+              '<path d="M 95 110 L 130 110" stroke="#4a5165" marker-end="url(#dna1)"/>' +
+              '<defs><marker id="dna1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#4a5165"/></marker></defs>' +
+              '<circle cx="155" cy="110" r="22" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>' +
+              '<path d="M 145 100 Q 155 90 165 100 Q 175 110 165 120 Q 155 130 145 120 Q 135 110 145 100" fill="none" stroke="#c2410c" stroke-width="1"/>' +
+              '<text x="155" y="170" text-anchor="middle" font-size="10" fill="#1a1f2e">nucleus</text>' +
+              '<path d="M 180 110 L 210 110" stroke="#4a5165" marker-end="url(#dna1)"/>' +
+              '<path d="M 240 70 Q 230 110 240 150 M 240 70 Q 250 110 240 150" stroke="#1d4ed8" stroke-width="3" fill="none"/>' +
+              '<text x="240" y="170" text-anchor="middle" font-size="10" fill="#1a1f2e">chromosome</text>' +
+              '<path d="M 265 110 L 295 110" stroke="#4a5165" marker-end="url(#dna1)"/>' +
+              '<path d="M 320 60 Q 335 80 320 100 Q 305 120 320 140 Q 335 160 320 180" stroke="#c2410c" stroke-width="2.5" fill="none"/>' +
+              '<path d="M 360 60 Q 345 80 360 100 Q 375 120 360 140 Q 345 160 360 180" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>' +
+              '<line x1="320" y1="60" x2="360" y2="60" stroke="#4a5165" stroke-width="1.5"/>' +
+              '<line x1="333" y1="80" x2="347" y2="80" stroke="#4a5165" stroke-width="1"/>' +
+              '<line x1="320" y1="100" x2="360" y2="100" stroke="#4a5165" stroke-width="1.5"/>' +
+              '<line x1="333" y1="120" x2="347" y2="120" stroke="#4a5165" stroke-width="1"/>' +
+              '<line x1="320" y1="140" x2="360" y2="140" stroke="#4a5165" stroke-width="1.5"/>' +
+              '<line x1="333" y1="160" x2="347" y2="160" stroke="#4a5165" stroke-width="1"/>' +
+              '<line x1="320" y1="180" x2="360" y2="180" stroke="#4a5165" stroke-width="1.5"/>' +
+              '<text x="340" y="200" text-anchor="middle" font-size="10" fill="#1a1f2e">DNA double helix</text>' +
+              '<text x="410" y="60" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">a gene</text>' +
+              '<rect x="385" y="85" width="50" height="40" fill="none" stroke="#15803d" stroke-width="1.5" stroke-dasharray="3 2"/>' +
+            '</svg>'
+          } },
         { h: "Genetic inheritance",
           body: ["Each gene exists in different versions called <strong>alleles</strong>. You inherit one allele from each parent.",
                  "<ul><li><strong>Dominant</strong> alleles (capital letter, e.g. B) show up if even one copy is present.</li><li><strong>Recessive</strong> alleles (lower case, e.g. b) only show up if BOTH copies are recessive.</li><li><strong>Homozygous</strong>: two copies the same (BB or bb).</li><li><strong>Heterozygous</strong>: two different copies (Bb).</li></ul>",

@@ -154,7 +154,35 @@ window.CONTENT_PHYSICS = (function () {
                  "Three-core cables in plugs have three wires:",
                  "<ul><li><strong>Live</strong> (brown), carries current at high voltage, dangerous</li><li><strong>Neutral</strong> (blue), completes the circuit, around 0 V</li><li><strong>Earth</strong> (green/yellow stripes), safety wire connected to the metal case of an appliance</li></ul>",
                  "<strong>If a fault makes the case live</strong>, current flows down the earth wire (low resistance path), the high current blows the fuse, the circuit is broken, you're safe.",
-                 "<strong>Fuses</strong> melt and break the circuit if too much current flows. Choose a fuse rating just above the appliance's normal current."] },
+                 "<strong>Fuses</strong> melt and break the circuit if too much current flows. Choose a fuse rating just above the appliance's normal current."],
+          diagram: {
+            alt: 'UK three-pin plug interior with live (brown), neutral (blue) and earth (green-yellow) wires labelled, plus fuse on the live wire',
+            caption: 'UK three-pin plug. Earth is the longest pin (top). Fuse always sits on the live wire.',
+            svg: '<svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">' +
+              '<rect x="80" y="30" width="240" height="220" rx="20" fill="#fef3c7" stroke="#1a1f2e" stroke-width="2"/>' +
+              '<rect x="190" y="50" width="20" height="40" rx="2" fill="#4a5165"/>' +
+              '<text x="200" y="100" text-anchor="middle" font-size="10" fill="#15803d" font-weight="700">EARTH</text>' +
+              '<text x="200" y="112" text-anchor="middle" font-size="9" fill="#15803d">(longest)</text>' +
+              '<rect x="100" y="160" width="20" height="32" rx="2" fill="#4a5165"/>' +
+              '<text x="110" y="208" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="700">NEUTRAL</text>' +
+              '<rect x="280" y="160" width="20" height="32" rx="2" fill="#4a5165"/>' +
+              '<text x="290" y="208" text-anchor="middle" font-size="10" fill="#c2410c" font-weight="700">LIVE</text>' +
+              '<line x1="200" y1="90"  x2="200" y2="160" stroke="#15803d" stroke-width="4"/>' +
+              '<line x1="110" y1="192" x2="110" y2="240" stroke="#1d4ed8" stroke-width="4"/>' +
+              '<line x1="290" y1="192" x2="290" y2="215" stroke="#c2410c" stroke-width="4"/>' +
+              '<rect x="278" y="215" width="24" height="14" fill="#1a1f2e" stroke="#1a1f2e"/>' +
+              '<text x="320" y="226" font-size="10" fill="#1a1f2e" font-weight="600">fuse</text>' +
+              '<line x1="290" y1="229" x2="290" y2="240" stroke="#c2410c" stroke-width="4"/>' +
+              '<line x1="110" y1="240" x2="290" y2="240" stroke="#1a1f2e" stroke-width="1"/>' +
+              '<line x1="200" y1="240" x2="200" y2="260" stroke="#1a1f2e" stroke-width="6"/>' +
+              '<text x="200" y="275" text-anchor="middle" font-size="10" fill="#1a1f2e" font-style="italic">cable to appliance</text>' +
+              '<text x="20" y="50" font-size="9" fill="#15803d" font-weight="600">green/yellow</text>' +
+              '<text x="20" y="180" font-size="9" fill="#1d4ed8" font-weight="600">blue</text>' +
+              '<text x="20" y="200" font-size="9" fill="#1d4ed8">(neutral side)</text>' +
+              '<text x="346" y="180" font-size="9" fill="#c2410c" font-weight="600">brown</text>' +
+              '<text x="346" y="200" font-size="9" fill="#c2410c">(live side)</text>' +
+            '</svg>'
+          } },
         { h: "Power, energy and cost",
           body: ["<strong>Power transferred by an electrical device:</strong>",
                  "<strong>P = V &times; I</strong>",
@@ -264,6 +292,29 @@ window.CONTENT_PHYSICS = (function () {
                  "<ul><li><strong>Alpha (&alpha;)</strong>: a helium nucleus, 2 protons + 2 neutrons. Heavy, slow, very ionising. Stopped by paper or a few cm of air. Range in air: a few cm.</li><li><strong>Beta (&beta;)</strong>: a fast-moving electron emitted from the nucleus when a neutron turns into a proton. Less ionising than alpha but more penetrating. Stopped by a few mm of aluminium. Range in air: about a metre.</li><li><strong>Gamma (&gamma;)</strong>: an electromagnetic wave, no mass. Least ionising but most penetrating. Stopped only by thick lead or concrete. Range in air: very long.</li></ul>",
                  "<strong>Neutron</strong> emission also exists. A neutron can be emitted from a heavy nucleus.",
                  "All four types are ionising, they can knock electrons off atoms, causing cell damage."],
+          diagram: {
+            alt: 'Alpha stopped by paper, beta stopped by aluminium, gamma passes through paper and aluminium and only stopped by lead',
+            caption: 'Penetration depth: alpha stopped by paper, beta by aluminium, gamma needs lead or thick concrete.',
+            svg: '<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">' +
+              '<defs><marker id="ra1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#c2410c"/></marker></defs>' +
+              '<defs><marker id="rb1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1d4ed8"/></marker></defs>' +
+              '<defs><marker id="rg1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#15803d"/></marker></defs>' +
+              '<text x="20" y="50"  font-size="11" fill="#c2410c" font-weight="700">&alpha; alpha</text>' +
+              '<text x="20" y="100" font-size="11" fill="#1d4ed8" font-weight="700">&beta; beta</text>' +
+              '<text x="20" y="150" font-size="11" fill="#15803d" font-weight="700">&gamma; gamma</text>' +
+              '<line x1="80" y1="46" x2="160" y2="46" stroke="#c2410c" stroke-width="2" marker-end="url(#ra1)"/>' +
+              '<line x1="80" y1="96" x2="240" y2="96" stroke="#1d4ed8" stroke-width="2" marker-end="url(#rb1)"/>' +
+              '<line x1="80" y1="146" x2="370" y2="146" stroke="#15803d" stroke-width="2" marker-end="url(#rg1)"/>' +
+              '<rect x="170" y="20" width="20" height="160" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1"/>' +
+              '<text x="180" y="195" text-anchor="middle" font-size="10" fill="#1a1f2e">paper</text>' +
+              '<rect x="245" y="20" width="20" height="160" fill="#e6e1d3" stroke="#1a1f2e" stroke-width="1"/>' +
+              '<text x="255" y="195" text-anchor="middle" font-size="10" fill="#1a1f2e">aluminium</text>' +
+              '<rect x="375" y="20" width="30" height="160" fill="#4a5165" stroke="#1a1f2e" stroke-width="1"/>' +
+              '<text x="390" y="195" text-anchor="middle" font-size="10" fill="#1a1f2e">lead</text>' +
+              '<text x="425" y="50" text-anchor="end" font-size="9" fill="#4a5165" font-style="italic">most ionising</text>' +
+              '<text x="425" y="150" text-anchor="end" font-size="9" fill="#4a5165" font-style="italic">most penetrating</text>' +
+            '</svg>'
+          },
           callout: { type: 'warn', label: 'Penetration paradox', text: "Alpha is the MOST ionising but LEAST penetrating. So alpha sources are safest outside the body but most dangerous inside (where they can't escape your cells)." } },
         { h: "Nuclear equations",
           body: ["You can write radioactive decay as an equation. The mass number and atomic number must balance on both sides.",
@@ -324,7 +375,30 @@ window.CONTENT_PHYSICS = (function () {
         { h: "Resultant force",
           body: ["When multiple forces act on an object, the overall effect is the <strong>resultant force</strong>. For forces along one line, just add (same direction) or subtract (opposite directions).",
                  "If the resultant is zero, the forces are <strong>balanced</strong>: the object stays still or moves at constant velocity.",
-                 "If there is a resultant force, the object accelerates in that direction."] },
+                 "If there is a resultant force, the object accelerates in that direction."],
+          diagram: {
+            alt: 'Two free-body diagrams: balanced forces on a stationary box (left), and unbalanced forces giving net forward force (right)',
+            caption: 'Balanced forces (left): no acceleration. Unbalanced (right): the bigger force wins; the box accelerates that way.',
+            svg: '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">' +
+              '<defs><marker id="fa1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1a1f2e"/></marker></defs>' +
+              '<text x="110" y="22" text-anchor="middle" font-size="12" fill="#15803d" font-weight="700">BALANCED</text>' +
+              '<rect x="80" y="80" width="60" height="60" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="80"  y1="110" x2="30"  y2="110" stroke="#1a1f2e" stroke-width="2" marker-end="url(#fa1)"/>' +
+              '<line x1="140" y1="110" x2="190" y2="110" stroke="#1a1f2e" stroke-width="2" marker-end="url(#fa1)"/>' +
+              '<text x="40" y="100" font-size="11" fill="#1a1f2e" font-weight="600">50 N</text>' +
+              '<text x="170" y="100" font-size="11" fill="#1a1f2e" font-weight="600">50 N</text>' +
+              '<text x="110" y="165" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">resultant = 0</text>' +
+              '<text x="110" y="180" text-anchor="middle" font-size="10" fill="#15803d">constant velocity (or still)</text>' +
+              '<text x="350" y="22" text-anchor="middle" font-size="12" fill="#c2410c" font-weight="700">UNBALANCED</text>' +
+              '<rect x="320" y="80" width="60" height="60" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="320" y1="110" x2="290" y2="110" stroke="#1a1f2e" stroke-width="2" marker-end="url(#fa1)"/>' +
+              '<line x1="380" y1="110" x2="450" y2="110" stroke="#c2410c" stroke-width="3" marker-end="url(#fa1)"/>' +
+              '<text x="300" y="100" font-size="11" fill="#1a1f2e" font-weight="600">30 N</text>' +
+              '<text x="430" y="100" font-size="11" fill="#c2410c" font-weight="600">80 N</text>' +
+              '<text x="350" y="165" text-anchor="middle" font-size="10" fill="#c2410c" font-weight="600">resultant = 50 N right</text>' +
+              '<text x="350" y="180" text-anchor="middle" font-size="10" fill="#c2410c">accelerates right (F = ma)</text>' +
+            '</svg>'
+          } },
         { h: "Work done",
           body: ["When a force moves an object, work is done. Energy is transferred.",
                  "<strong>W = F &times; d</strong>",
@@ -395,7 +469,51 @@ window.CONTENT_PHYSICS = (function () {
         { h: "Transverse and longitudinal waves",
           body: ["All waves carry energy. Two types:",
                  "<ul><li><strong>Transverse waves</strong>: oscillations are perpendicular (at 90&deg;) to the direction of energy transfer. Examples: water waves on the surface, all electromagnetic waves.</li><li><strong>Longitudinal waves</strong>: oscillations are parallel (along) the direction of energy transfer. Examples: sound waves in air.</li></ul>",
-                 "A longitudinal wave has <strong>compressions</strong> (squashed-together particles) and <strong>rarefactions</strong> (spread-out particles)."] },
+                 "A longitudinal wave has <strong>compressions</strong> (squashed-together particles) and <strong>rarefactions</strong> (spread-out particles)."],
+          diagram: {
+            alt: 'Transverse wave shown as sine curve with amplitude and wavelength labelled; longitudinal wave shown as compressions and rarefactions',
+            caption: 'Transverse (top): oscillation at 90&deg; to wave direction. Longitudinal (bottom): particles squash and stretch along the direction of travel.',
+            svg: '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg">' +
+              '<defs><marker id="w1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1a1f2e"/></marker></defs>' +
+              '<text x="40" y="22" font-size="11" fill="#c2410c" font-weight="700">TRANSVERSE</text>' +
+              '<path d="M 30 70 Q 60 30 90 70 Q 120 110 150 70 Q 180 30 210 70 Q 240 110 270 70 Q 300 30 330 70 Q 360 110 390 70" stroke="#c2410c" stroke-width="2.5" fill="none"/>' +
+              '<line x1="30" y1="70" x2="395" y2="70" stroke="#1a1f2e" stroke-width="0.8" stroke-dasharray="2 3"/>' +
+              '<line x1="395" y1="70" x2="430" y2="70" stroke="#1a1f2e" stroke-width="1" marker-end="url(#w1)"/>' +
+              '<text x="430" y="86" text-anchor="end" font-size="9" fill="#4a5165">direction of travel</text>' +
+              '<line x1="90" y1="70" x2="90" y2="40" stroke="#15803d" stroke-width="1"/>' +
+              '<text x="95" y="55" font-size="9" fill="#15803d">amplitude</text>' +
+              '<line x1="90" y1="105" x2="210" y2="105" stroke="#15803d" stroke-width="1" marker-start="url(#w1)" marker-end="url(#w1)"/>' +
+              '<text x="150" y="120" text-anchor="middle" font-size="9" fill="#15803d">wavelength &lambda;</text>' +
+              '<text x="40" y="155" font-size="11" fill="#1d4ed8" font-weight="700">LONGITUDINAL</text>' +
+              '<line x1="40"  y1="170" x2="40"  y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="60"  y1="170" x2="60"  y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="80"  y1="170" x2="80"  y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="90"  y1="170" x2="90"  y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="100" y1="170" x2="100" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="105" y1="170" x2="105" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="110" y1="170" x2="110" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="135" y1="170" x2="135" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="160" y1="170" x2="160" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="185" y1="170" x2="185" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="200" y1="170" x2="200" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="210" y1="170" x2="210" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="220" y1="170" x2="220" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="245" y1="170" x2="245" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="270" y1="170" x2="270" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="295" y1="170" x2="295" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="310" y1="170" x2="310" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="320" y1="170" x2="320" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="330" y1="170" x2="330" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="355" y1="170" x2="355" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<line x1="380" y1="170" x2="380" y2="210" stroke="#1d4ed8" stroke-width="1.5"/>' +
+              '<text x="100" y="226" text-anchor="middle" font-size="9" fill="#1d4ed8" font-weight="600">compression</text>' +
+              '<text x="210" y="226" text-anchor="middle" font-size="9" fill="#1d4ed8" font-weight="600">compression</text>' +
+              '<text x="320" y="226" text-anchor="middle" font-size="9" fill="#1d4ed8" font-weight="600">compression</text>' +
+              '<text x="155" y="166" text-anchor="middle" font-size="9" fill="#4a5165">rarefaction</text>' +
+              '<text x="265" y="166" text-anchor="middle" font-size="9" fill="#4a5165">rarefaction</text>' +
+              '<line x1="395" y1="190" x2="430" y2="190" stroke="#1a1f2e" stroke-width="1" marker-end="url(#w1)"/>' +
+            '</svg>'
+          } },
         { h: "Wave properties",
           body: ["<strong>Wavelength (&lambda;)</strong>, distance from one peak to the next (or one trough to the next), in metres.",
                  "<strong>Amplitude</strong>, maximum displacement from the rest position. Bigger amplitude = more energy.",
@@ -485,7 +603,31 @@ window.CONTENT_PHYSICS = (function () {
           body: ["A magnetic field is the region around a magnet where another magnet (or magnetic material) feels a force.",
                  "Field lines are drawn from N to S outside the magnet.",
                  "<ul><li>Closer lines = stronger field</li><li>The strongest field is at the poles</li></ul>",
-                 "You can map a field with iron filings (they line up along the field) or with small plotting compasses (they point along the field line)."] },
+                 "You can map a field with iron filings (they line up along the field) or with small plotting compasses (they point along the field line)."],
+          diagram: {
+            alt: 'Bar magnet with field lines curving from north to south, denser near the poles',
+            caption: 'Magnetic field around a bar magnet: lines run N to S outside; closer lines = stronger field.',
+            svg: '<svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg">' +
+              '<defs><marker id="mg1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1d4ed8"/></marker></defs>' +
+              '<rect x="180" y="105" width="100" height="30" fill="#fef3c7" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<rect x="180" y="105" width="50" height="30" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>' +
+              '<text x="205" y="125" text-anchor="middle" font-size="14" fill="#b91c1c" font-weight="700">N</text>' +
+              '<text x="255" y="125" text-anchor="middle" font-size="14" fill="#1d4ed8" font-weight="700">S</text>' +
+              '<path d="M 195 105 Q 195 60 230 60 Q 265 60 265 105" stroke="#1d4ed8" stroke-width="1.5" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 105 Q 195 30 230 30 Q 265 30 265 105" stroke="#1d4ed8" stroke-width="1.2" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 105 Q 175 20 130 50 Q 90 90 195 105" stroke="#1d4ed8" stroke-width="1" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 105 Q 215 200 265 105" stroke="#1d4ed8" stroke-width="1" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 135 Q 195 180 230 180 Q 265 180 265 135" stroke="#1d4ed8" stroke-width="1.5" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 135 Q 195 210 230 210 Q 265 210 265 135" stroke="#1d4ed8" stroke-width="1.2" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 135 Q 175 220 130 190 Q 90 150 195 135" stroke="#1d4ed8" stroke-width="1" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 195 135 Q 215 100 265 135" stroke="#1d4ed8" stroke-width="1" fill="none" marker-end="url(#mg1)"/>' +
+              '<path d="M 265 105 Q 285 20 330 50 Q 370 90 265 105" stroke="#1d4ed8" stroke-width="1" fill="none"/>' +
+              '<path d="M 265 135 Q 285 220 330 190 Q 370 150 265 135" stroke="#1d4ed8" stroke-width="1" fill="none"/>' +
+              '<text x="115" y="115" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">weaker</text>' +
+              '<text x="115" y="128" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">far from poles</text>' +
+              '<text x="230" y="155" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">strongest at poles</text>' +
+            '</svg>'
+          } },
         { h: "The Earth's magnetic field",
           body: ["The Earth itself behaves like a giant magnet, probably because of the molten iron in its outer core. A compass aligns with this field, the 'north-seeking' pole of the compass points roughly towards the geographic North Pole.",
                  "Important: the geographic North Pole is, magnetically, a SOUTH pole (because the compass north points to it, and opposites attract)."] },
