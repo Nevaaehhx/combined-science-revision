@@ -447,6 +447,66 @@
   }
   .mistake-card .mc-actions { display: flex; gap: 8px; margin-top: 12px; }
   .mistake-card .mc-actions .back-btn { font-size: 12px; }
+
+  /* Improvements panel */
+  .improvements-panel {
+    background: var(--green-soft); border: 1px solid #86efac;
+    border-radius: 8px; padding: 16px 18px; margin-bottom: 24px;
+  }
+  .improvements-panel h4 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--green); margin-bottom: 12px; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .improvements-panel h4 .view-all {
+    text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 12px;
+    color: var(--green); cursor: pointer; background: none; border: none; font-family: inherit;
+  }
+  .improvements-panel h4 .view-all:hover { text-decoration: underline; }
+  .imp-row {
+    display: flex; gap: 10px; align-items: flex-start; padding: 8px 0;
+    border-top: 1px solid #bbf7d0; font-size: 13px;
+  }
+  .imp-row:first-of-type { border-top: none; padding-top: 0; }
+  .imp-row .imp-icon {
+    flex: 0 0 28px; height: 28px; border-radius: 50%;
+    background: var(--green); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px;
+  }
+  .imp-row .imp-body { flex: 1; }
+  .imp-row .imp-title { font-weight: 500; color: var(--ink); }
+  .imp-row .imp-meta { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+
+  .imp-empty { color: var(--ink-soft); font-size: 13px; font-style: italic; padding: 4px 0; }
+
+  /* Improvements full view */
+  .imp-card {
+    background: var(--paper); border: 1px solid var(--paper-line);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 10px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .imp-card .imp-icon-lg {
+    flex: 0 0 36px; height: 36px; border-radius: 50%;
+    background: var(--green-soft); color: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; border: 1px solid #86efac;
+  }
+  .imp-card .imp-body { flex: 1; }
+  .imp-card .imp-title { font-weight: 500; color: var(--ink); font-size: 14px; }
+  .imp-card .imp-meta { font-size: 11px; color: var(--ink-soft); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .imp-summary {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--paper-line); border: 1px solid var(--paper-line);
+    border-radius: 8px; overflow: hidden; margin-bottom: 22px;
+  }
+  .imp-summary .imp-stat { background: var(--paper); padding: 14px 14px; text-align: center; }
+  .imp-summary .imp-stat-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 4px; line-height: 1.3; }
+  .imp-summary .imp-stat-value { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--green); line-height: 1; }
+  @media (max-width: 600px) {
+    .imp-summary { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -503,6 +563,7 @@
       sessions: [],
       lessonsRead: {},
       attempts: [],
+      improvements: [],
       streak: { lastDay: null, days: 0 },
       lastSubject: 'chem'
     };
@@ -525,6 +586,7 @@
   const STORAGE_KEY = 'revise_progress_v3';
   const LEGACY_KEY = 'chem_progress_v2';
   const MAX_ATTEMPTS = 500;
+  const MAX_IMPROVEMENTS = 100;
 
   function loadProgress() {
     try {
@@ -536,6 +598,7 @@
           sessions: loaded.sessions || [],
           lessonsRead: loaded.lessonsRead || {},
           attempts: loaded.attempts || [],
+          improvements: loaded.improvements || [],
           streak: loaded.streak || { lastDay: null, days: 0 }
         });
         return;
@@ -560,6 +623,9 @@
     try {
       if (state.progress.attempts && state.progress.attempts.length > MAX_ATTEMPTS) {
         state.progress.attempts = state.progress.attempts.slice(-MAX_ATTEMPTS);
+      }
+      if (state.progress.improvements && state.progress.improvements.length > MAX_IMPROVEMENTS) {
+        state.progress.improvements = state.progress.improvements.slice(-MAX_IMPROVEMENTS);
       }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
     } catch (e) {
@@ -642,6 +708,12 @@
     };
   }
   function recordAnswer(question, marksEarned, detail) {
+    const beforePct = (function () {
+      const tt = state.progress.topics[question.topic];
+      if (!tt || !tt.maxMarks) return null;
+      return Math.round((tt.marksEarned / tt.maxMarks) * 100);
+    })();
+
     const t = state.progress.topics[question.topic] || { attempted: 0, marksEarned: 0, maxMarks: 0 };
     t.attempted = (t.attempted || 0) + 1;
     t.marksEarned = (t.marksEarned || 0) + marksEarned;
@@ -663,6 +735,79 @@
       correct: marksEarned >= question.marks,
       resolved: false
     });
+
+    checkTopicMastery(question.topic, beforePct);
+  }
+
+  // =============================================
+  // IMPROVEMENTS LOG
+  // Detects and stores noteworthy moments: topic
+  // mastery, session bests, streak milestones,
+  // mistakes turned around, lessons read.
+  // =============================================
+  function logImprovement(type, title, detail) {
+    if (!state.progress.improvements) state.progress.improvements = [];
+    state.progress.improvements.push({
+      id: 'imp-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+      date: Date.now(),
+      type: type,
+      title: title,
+      detail: detail || null
+    });
+  }
+  function hasImprovement(type, predicate) {
+    return (state.progress.improvements || []).some(function (i) {
+      return i.type === type && predicate(i);
+    });
+  }
+  function checkTopicMastery(topicId, beforePct) {
+    const t = state.progress.topics[topicId];
+    if (!t || (t.attempted || 0) < 5 || !t.maxMarks) return;
+    const pct = Math.round((t.marksEarned / t.maxMarks) * 100);
+    if (pct < 80) return;
+    if (beforePct !== null && beforePct >= 80) return;
+    if (hasImprovement('topic_mastered', function (i) { return i.detail && i.detail.topicId === topicId; })) return;
+    const topic = TOPICS.find(function (x) { return x.id === topicId; });
+    if (!topic) return;
+    logImprovement('topic_mastered',
+      topic.code + ' &middot; ' + topic.name + ' mastered',
+      { topicId: topicId, pct: pct });
+  }
+  function checkSessionBest(session) {
+    const pct = session.maxMarks ? Math.round((session.marksEarned / session.maxMarks) * 100) : 0;
+    if (pct < 50) return;
+    const prior = (state.progress.sessions || []).slice(1).map(function (s) {
+      return s.maxMarks ? Math.round((s.marksEarned / s.maxMarks) * 100) : 0;
+    });
+    if (!prior.length) return;
+    const previousBest = Math.max.apply(null, prior);
+    if (pct <= previousBest) return;
+    logImprovement('session_best',
+      'New best: ' + pct + '% on ' + session.label,
+      { pct: pct, previousBest: previousBest, label: session.label });
+  }
+  function checkStreakMilestone() {
+    const days = state.progress.streak && state.progress.streak.days;
+    if (!days) return;
+    const milestones = [3, 7, 14, 30, 60, 100];
+    if (milestones.indexOf(days) === -1) return;
+    if (hasImprovement('streak_milestone', function (i) { return i.detail && i.detail.days === days; })) return;
+    logImprovement('streak_milestone',
+      days + '-day revision streak',
+      { days: days });
+  }
+  function logMistakeResolved(question) {
+    const topic = TOPICS.find(function (x) { return x.id === question.topic; });
+    logImprovement('mistake_resolved',
+      'Cleared a mistake on ' + (topic ? topic.code : question.topic),
+      { questionId: question.id, topicId: question.topic });
+  }
+  function logLessonRead(topicId) {
+    const topic = TOPICS.find(function (x) { return x.id === topicId; });
+    if (!topic) return;
+    logImprovement('lesson_read',
+      'Read ' + topic.code + ' &middot; ' + topic.name,
+      { topicId: topicId });
   }
   function updateStreak() {
     const today = new Date();
@@ -685,6 +830,8 @@
     state.progress.sessions.unshift(data);
     state.progress.sessions = state.progress.sessions.slice(0, 30);
     updateStreak();
+    checkStreakMilestone();
+    checkSessionBest(data);
   }
   function getUnresolvedMistakes(filter) {
     filter = filter || {};
@@ -702,7 +849,9 @@
     return QUESTIONS.find(function (q) { return q.id === qid; }) || null;
   }
   function markLessonRead(topicId) {
+    const wasRead = !!state.progress.lessonsRead[topicId];
     state.progress.lessonsRead[topicId] = Date.now();
+    if (!wasRead) logLessonRead(topicId);
     saveProgress();
   }
   function getTotalStats() {
@@ -868,6 +1017,60 @@
       '<div>' + msg + '</div>' +
     '</div>';
   }
+  function improvementIcon(type) {
+    switch (type) {
+      case 'topic_mastered': return '&#9733;';   // star
+      case 'session_best':   return '&#8593;';   // up arrow
+      case 'streak_milestone': return '&#128293;'.length === 2 ? '&#128293;' : '&#9889;';
+      case 'mistake_resolved': return '&check;';
+      case 'lesson_read':    return '&#128214;'.length === 2 ? '&#128214;' : 'L';
+      default: return '&check;';
+    }
+  }
+  function improvementLabel(type) {
+    switch (type) {
+      case 'topic_mastered': return 'Topic mastered';
+      case 'session_best':   return 'New best';
+      case 'streak_milestone': return 'Streak';
+      case 'mistake_resolved': return 'Mistake cleared';
+      case 'lesson_read':    return 'Lesson read';
+      default: return 'Improvement';
+    }
+  }
+  function formatImpDate(ts) {
+    const d = new Date(ts);
+    const now = new Date();
+    const diffMs = now - d;
+    const oneDay = 86400000;
+    if (diffMs < oneDay && d.toDateString() === now.toDateString()) {
+      return 'Today, ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    }
+    const yesterday = new Date(now.getTime() - oneDay);
+    if (d.toDateString() === yesterday.toDateString()) return 'Yesterday';
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  }
+  function buildImprovementsPanel() {
+    const imps = (state.progress.improvements || []).slice().reverse();
+    const recent = imps.slice(0, 3);
+    let html = '<div class="improvements-panel">' +
+      '<h4>What you\'ve improved <button class="view-all" onclick="window._app.openImprovements()">View all &rsaquo;</button></h4>';
+    if (!recent.length) {
+      html += '<div class="imp-empty">Nothing logged yet. Read a lesson, do a session, or clear a mistake and it\'ll show up here.</div>';
+    } else {
+      recent.forEach(function (i) {
+        html += '<div class="imp-row">' +
+          '<div class="imp-icon">' + improvementIcon(i.type) + '</div>' +
+          '<div class="imp-body">' +
+            '<div class="imp-title">' + i.title + '</div>' +
+            '<div class="imp-meta">' + improvementLabel(i.type) + ' &middot; ' + formatImpDate(i.date) + '</div>' +
+          '</div>' +
+        '</div>';
+      });
+    }
+    html += '</div>';
+    return html;
+  }
+
   function buildMistakesCallout() {
     const filter = state.subjectFilter === 'all' ? {} : { subjectId: state.subjectFilter };
     const mistakes = getUnresolvedMistakes(filter);
@@ -1007,8 +1210,53 @@
     buildStreakRow() +
     buildSubjectPills() +
     buildMistakesCallout() +
+    buildImprovementsPanel() +
     buildProgressChart() +
     statsHtml + quickstartHtml + topicsHtml + recentHtml + footerHtml;
+  }
+
+  function viewImprovements() {
+    const imps = (state.progress.improvements || []).slice().reverse();
+    const counts = imps.reduce(function (acc, i) {
+      acc[i.type] = (acc[i.type] || 0) + 1;
+      return acc;
+    }, {});
+    const types = ['topic_mastered', 'session_best', 'streak_milestone', 'mistake_resolved', 'lesson_read'];
+
+    let html = '<div class="quiz-header">' +
+      '<button class="back-btn" onclick="window._app.back()">&larr; Back to home</button>' +
+      '<div class="quiz-progress">All improvements &middot; ' + imps.length + '</div>' +
+    '</div>';
+    html += '<div class="topic-hero fade-in" style="padding-bottom: 18px; margin-bottom: 24px;">' +
+      '<div class="code">PROGRESS</div>' +
+      '<h2 class="serif">Things you\'ve improved at</h2>' +
+      '<p>Every milestone you\'ve hit, all in one place. Built up automatically as you revise.</p>' +
+    '</div>';
+
+    html += '<div class="imp-summary">';
+    types.forEach(function (t) {
+      html += '<div class="imp-stat">' +
+        '<div class="imp-stat-label">' + improvementLabel(t) + 's</div>' +
+        '<div class="imp-stat-value">' + (counts[t] || 0) + '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+
+    if (!imps.length) {
+      html += '<div class="recent" style="padding: 24px;"><div class="recent-empty">Nothing here yet. Improvements log automatically once you start revising.</div></div>';
+      return html;
+    }
+
+    imps.forEach(function (i) {
+      html += '<div class="imp-card">' +
+        '<div class="imp-icon-lg">' + improvementIcon(i.type) + '</div>' +
+        '<div class="imp-body">' +
+          '<div class="imp-title">' + i.title + '</div>' +
+          '<div class="imp-meta">' + improvementLabel(i.type) + ' &middot; ' + formatImpDate(i.date) + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    return html;
   }
 
   function viewMistakes() {
@@ -1328,7 +1576,10 @@
     if (!state.session || !state.session.retryAttemptId) return;
     if (marksEarned < question.marks) return;
     const att = (state.progress.attempts || []).find(function (a) { return a.id === state.session.retryAttemptId; });
-    if (att) att.resolved = true;
+    if (att) {
+      att.resolved = true;
+      logMistakeResolved(question);
+    }
   }
   function exportContentJSON() {
     try {
@@ -1365,6 +1616,7 @@
       render();
     },
     openMistakes: function() { state.view = 'mistakes'; render(); },
+    openImprovements: function() { state.view = 'improvements'; render(); },
     retryMistake: function(attemptId) { startSessionFromMistake(attemptId); },
     markResolved: function(attemptId) {
       const att = (state.progress.attempts || []).find(function (a) { return a.id === attemptId; });
@@ -1421,6 +1673,7 @@
     else if (state.view === 'results') html = viewResults();
     else if (state.view === 'confirm-reset') html = viewConfirmReset();
     else if (state.view === 'mistakes') html = viewMistakes();
+    else if (state.view === 'improvements') html = viewImprovements();
     else html = viewHome();
     app.innerHTML = html;
     window.scrollTo({ top: 0, behavior: 'smooth' });
