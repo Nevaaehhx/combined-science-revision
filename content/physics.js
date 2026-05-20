@@ -114,7 +114,41 @@ window.CONTENT_PHYSICS = (function () {
                  "<ul><li>Same current through every component</li><li>Voltages share out between components, adding up to the total</li><li>Total resistance = sum of resistances (R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + ...)</li></ul>",
                  "<strong>Parallel circuit</strong>: components on different branches.",
                  "<ul><li>Same voltage across each branch (equal to battery voltage)</li><li>Currents share between branches, adding up to the total current</li><li>Adding more parallel components DECREASES total resistance (more paths for current)</li></ul>",
-                 "Most household circuits are parallel: you can turn one bulb off without the rest going off, and each appliance gets full mains voltage."] },
+                 "Most household circuits are parallel: you can turn one bulb off without the rest going off, and each appliance gets full mains voltage."],
+          diagram: {
+            alt: 'Series circuit with two bulbs in a single loop, and parallel circuit with two bulbs on separate branches',
+            caption: 'Series: one loop, current the same everywhere. Parallel: separate branches, each gets full voltage.',
+            svg: '<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">' +
+              '<text x="110" y="20" text-anchor="middle" font-size="12" fill="#c2410c" font-weight="700">SERIES</text>' +
+              '<rect x="30" y="40" width="160" height="130" fill="none" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="40" y1="35" x2="40" y2="55" stroke="#1a1f2e" stroke-width="3"/>' +
+              '<line x1="48" y1="30" x2="48" y2="60" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<text x="58" y="50" font-size="10" fill="#1a1f2e">+</text>' +
+              '<circle cx="90"  cy="170" r="10" fill="#fef3c7" stroke="#a16207"/>' +
+              '<line x1="83" y1="163" x2="97" y2="177" stroke="#a16207"/>' +
+              '<line x1="83" y1="177" x2="97" y2="163" stroke="#a16207"/>' +
+              '<circle cx="150" cy="170" r="10" fill="#fef3c7" stroke="#a16207"/>' +
+              '<line x1="143" y1="163" x2="157" y2="177" stroke="#a16207"/>' +
+              '<line x1="143" y1="177" x2="157" y2="163" stroke="#a16207"/>' +
+              '<text x="110" y="115" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">same current</text>' +
+              '<text x="110" y="128" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">all the way round</text>' +
+              '<text x="350" y="20" text-anchor="middle" font-size="12" fill="#1d4ed8" font-weight="700">PARALLEL</text>' +
+              '<rect x="240" y="40" width="200" height="130" fill="none" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="250" y1="35" x2="250" y2="55" stroke="#1a1f2e" stroke-width="3"/>' +
+              '<line x1="258" y1="30" x2="258" y2="60" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<text x="268" y="50" font-size="10" fill="#1a1f2e">+</text>' +
+              '<line x1="310" y1="40" x2="310" y2="170" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="380" y1="40" x2="380" y2="170" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<circle cx="310" cy="105" r="10" fill="#fef3c7" stroke="#a16207"/>' +
+              '<line x1="303" y1="98" x2="317" y2="112" stroke="#a16207"/>' +
+              '<line x1="303" y1="112" x2="317" y2="98" stroke="#a16207"/>' +
+              '<circle cx="380" cy="105" r="10" fill="#fef3c7" stroke="#a16207"/>' +
+              '<line x1="373" y1="98" x2="387" y2="112" stroke="#a16207"/>' +
+              '<line x1="373" y1="112" x2="387" y2="98" stroke="#a16207"/>' +
+              '<text x="340" y="135" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">each branch</text>' +
+              '<text x="340" y="148" text-anchor="middle" font-size="9" fill="#4a5165" font-style="italic">= full voltage</text>' +
+            '</svg>'
+          } },
         { h: "Mains electricity",
           body: ["UK mains is <strong>230 V alternating current (a.c.)</strong> at <strong>50 Hz</strong>. Direct current (d.c.) is from batteries.",
                  "Three-core cables in plugs have three wires:",
@@ -380,6 +414,33 @@ window.CONTENT_PHYSICS = (function () {
                  "<ul><li><strong>Radio waves</strong></li><li><strong>Microwaves</strong></li><li><strong>Infrared</strong></li><li><strong>Visible light</strong> (red &rarr; orange &rarr; yellow &rarr; green &rarr; blue &rarr; indigo &rarr; violet)</li><li><strong>Ultraviolet</strong></li><li><strong>X-rays</strong></li><li><strong>Gamma rays</strong></li></ul>",
                  "Higher frequency = shorter wavelength = more energy. Memory aid: 'Roman Men Invented Very Unusual X-ray Guns'.",
                  "Frequencies past UV are <strong>ionising</strong>, they can knock electrons off atoms and damage living cells."],
+          diagram: {
+            alt: 'Electromagnetic spectrum bands from radio to gamma, with wavelength and energy arrows',
+            caption: 'The EM spectrum: longest wavelength on the left, highest energy on the right.',
+            svg: '<svg viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg">' +
+              '<rect x="20"  y="60" width="60" height="30" fill="#dbeafe" stroke="#1d4ed8"/>' +
+              '<rect x="80"  y="60" width="60" height="30" fill="#bfdbfe" stroke="#1d4ed8"/>' +
+              '<rect x="140" y="60" width="55" height="30" fill="#fed7aa" stroke="#c2410c"/>' +
+              '<rect x="195" y="60" width="40" height="30" fill="url(#vis)" stroke="#1a1f2e"/>' +
+              '<defs><linearGradient id="vis" x1="0" x2="1"><stop offset="0%" stop-color="#dc2626"/><stop offset="20%" stop-color="#f97316"/><stop offset="40%" stop-color="#eab308"/><stop offset="60%" stop-color="#16a34a"/><stop offset="80%" stop-color="#2563eb"/><stop offset="100%" stop-color="#7e22ce"/></linearGradient></defs>' +
+              '<rect x="235" y="60" width="55" height="30" fill="#ddd6fe" stroke="#7e22ce"/>' +
+              '<rect x="290" y="60" width="65" height="30" fill="#fee2e2" stroke="#b91c1c"/>' +
+              '<rect x="355" y="60" width="80" height="30" fill="#fecaca" stroke="#b91c1c"/>' +
+              '<text x="50"  y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">Radio</text>' +
+              '<text x="110" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">Microwave</text>' +
+              '<text x="167" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">Infrared</text>' +
+              '<text x="215" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">Visible</text>' +
+              '<text x="262" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">UV</text>' +
+              '<text x="322" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">X-ray</text>' +
+              '<text x="395" y="105" text-anchor="middle" font-size="9" fill="#1a1f2e">Gamma</text>' +
+              '<path d="M 20 130 L 440 130" stroke="#4a5165" stroke-width="1.2" marker-end="url(#a4)"/>' +
+              '<defs><marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#4a5165"/></marker></defs>' +
+              '<text x="20" y="148" font-size="10" fill="#4a5165">long wavelength &amp; low frequency</text>' +
+              '<text x="440" y="148" text-anchor="end" font-size="10" fill="#4a5165">short wavelength &amp; high energy</text>' +
+              '<line x1="290" y1="55" x2="290" y2="40" stroke="#b91c1c" stroke-width="1.2"/>' +
+              '<text x="290" y="35" text-anchor="middle" font-size="10" fill="#b91c1c" font-weight="600">ionising from UV onwards</text>' +
+            '</svg>'
+          },
           callout: { type: 'key', label: 'Speed in a vacuum', text: "All EM waves travel at the same speed in a vacuum: c = 3 &times; 10&sup8; m/s. They differ only in frequency and wavelength." } },
         { h: "Uses and dangers of EM waves",
           body: ["<ul><li><strong>Radio waves</strong>, broadcasting (TV, radio), long-distance communication, mobile phones</li><li><strong>Microwaves</strong>, heating food (water molecules absorb them), satellite communication, Wi-Fi</li><li><strong>Infrared</strong>, remote controls, thermal imaging, cooking (grills), heaters. Felt as warmth.</li><li><strong>Visible light</strong>, the only part we see, used in fibre optics</li><li><strong>Ultraviolet</strong>, fluorescent lamps, sun beds, sterilising water. Causes sunburn, skin cancer.</li><li><strong>X-rays</strong>, medical imaging (bones), airport security. Ionising, repeated exposure dangerous.</li><li><strong>Gamma rays</strong>, sterilising medical equipment, cancer treatment. Highly ionising, dangerous in large doses.</li></ul>"] },

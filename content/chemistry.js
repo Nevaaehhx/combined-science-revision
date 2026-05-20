@@ -41,7 +41,28 @@ window.CONTENT_CHEMISTRY = (function () {
           body: ["Electrons sit in shells around the nucleus. Each shell holds a limited number:",
                  "<ul><li>First shell: holds up to 2 electrons</li><li>Second shell: holds up to 8 electrons</li><li>Third shell: holds up to 8 electrons (for the elements you need to know)</li></ul>",
                  "Fill the shells in order from inside out. Sodium has 11 electrons total, so its arrangement is 2,8,1. (Two in the first, eight in the second, one in the third.)",
-                 "The <strong>outer shell</strong> is the most important for chemistry. The number of electrons in the outer shell tells you which <strong>group</strong> on the periodic table the element is in."] },
+                 "The <strong>outer shell</strong> is the most important for chemistry. The number of electrons in the outer shell tells you which <strong>group</strong> on the periodic table the element is in."],
+          diagram: {
+            alt: 'Sodium atom: 11 protons in nucleus, electrons arranged 2,8,1 across three shells',
+            caption: 'Sodium atom (Na, atomic number 11): electrons fill shells in the order 2, 8, 1.',
+            svg: '<svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">' +
+              '<circle cx="180" cy="130" r="105" fill="none" stroke="#e6e1d3" stroke-width="1"/>' +
+              '<circle cx="180" cy="130" r="70" fill="none" stroke="#e6e1d3" stroke-width="1"/>' +
+              '<circle cx="180" cy="130" r="35" fill="none" stroke="#e6e1d3" stroke-width="1"/>' +
+              '<circle cx="180" cy="130" r="14" fill="#c2410c"/>' +
+              '<text x="180" y="135" text-anchor="middle" font-size="12" fill="#faf8f3" font-weight="700">11p</text>' +
+              '<circle cx="180" cy="95" r="4" fill="#1d4ed8"/><circle cx="180" cy="165" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="180" cy="60" r="4" fill="#1d4ed8"/><circle cx="180" cy="200" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="230" cy="80" r="4" fill="#1d4ed8"/><circle cx="130" cy="180" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="230" cy="180" r="4" fill="#1d4ed8"/><circle cx="130" cy="80" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="245" cy="130" r="4" fill="#1d4ed8"/><circle cx="115" cy="130" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="180" cy="25" r="4" fill="#1d4ed8"/>' +
+              '<text x="22" y="40" font-size="11" fill="#4a5165">Shell 1: 2 e&#8315;</text>' +
+              '<text x="22" y="58" font-size="11" fill="#4a5165">Shell 2: 8 e&#8315;</text>' +
+              '<text x="22" y="76" font-size="11" fill="#4a5165">Shell 3: 1 e&#8315;</text>' +
+              '<text x="260" y="240" font-size="11" fill="#c2410c" font-weight="600">nucleus = 11 protons + 12 neutrons</text>' +
+            '</svg>'
+          } },
         { h: "The periodic table",
           body: ["The periodic table is arranged in rows (called <strong>periods</strong>) and columns (called <strong>groups</strong>).",
                  "Elements in the same group have the <strong>same number of electrons in their outer shell</strong>. That's why they react in similar ways.",
@@ -92,7 +113,30 @@ window.CONTENT_CHEMISTRY = (function () {
           body: ["Ionic bonds form between a <strong>metal</strong> and a <strong>non-metal</strong>.",
                  "The metal atom <strong>loses</strong> its outer electrons (becoming a positive ion). The non-metal atom <strong>gains</strong> those electrons (becoming a negative ion).",
                  "The positive and negative ions are then attracted to each other. This electrostatic attraction is the ionic bond.",
-                 "Example: Sodium chloride (NaCl). Sodium loses 1 electron to become Na+. Chlorine gains 1 electron to become Cl-. The Na+ and Cl- ions attract each other."] },
+                 "Example: Sodium chloride (NaCl). Sodium loses 1 electron to become Na+. Chlorine gains 1 electron to become Cl-. The Na+ and Cl- ions attract each other."],
+          diagram: {
+            alt: 'Sodium loses one electron to chlorine, forming Na+ and Cl- ions',
+            caption: 'Ionic bonding in NaCl: sodium transfers one electron to chlorine.',
+            svg: '<svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">' +
+              '<circle cx="80" cy="100" r="50" fill="none" stroke="#e6e1d3"/>' +
+              '<circle cx="80" cy="100" r="14" fill="#c2410c"/>' +
+              '<text x="80" y="104" text-anchor="middle" font-size="11" fill="#faf8f3" font-weight="700">Na</text>' +
+              '<circle cx="80" cy="50" r="4" fill="#15803d"/>' +
+              '<text x="80" y="35" text-anchor="middle" font-size="10" fill="#15803d">outer e&#8315;</text>' +
+              '<path d="M 130 80 Q 175 50 220 80" stroke="#15803d" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)"/>' +
+              '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#15803d"/></marker></defs>' +
+              '<text x="175" y="50" text-anchor="middle" font-size="11" fill="#15803d" font-weight="600">1 electron</text>' +
+              '<circle cx="280" cy="100" r="60" fill="none" stroke="#e6e1d3"/>' +
+              '<circle cx="280" cy="100" r="14" fill="#1d4ed8"/>' +
+              '<text x="280" y="104" text-anchor="middle" font-size="11" fill="#faf8f3" font-weight="700">Cl</text>' +
+              '<circle cx="280" cy="40" r="4" fill="#1d4ed8"/><circle cx="280" cy="160" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="220" cy="100" r="4" fill="#1d4ed8"/><circle cx="340" cy="100" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="240" cy="60" r="4" fill="#1d4ed8"/><circle cx="320" cy="60" r="4" fill="#1d4ed8"/>' +
+              '<circle cx="240" cy="140" r="4" fill="#1d4ed8"/>' +
+              '<text x="80" y="180" text-anchor="middle" font-size="13" fill="#c2410c" font-weight="700">Na&#8314;</text>' +
+              '<text x="280" y="190" text-anchor="middle" font-size="13" fill="#1d4ed8" font-weight="700">Cl&#8315;</text>' +
+            '</svg>'
+          } },
         { h: "Properties of ionic compounds",
           body: ["Ionic compounds form <strong>giant ionic lattices</strong>, regular 3D arrangements of millions of positive and negative ions.",
                  "<strong>High melting and boiling points.</strong> There are strong electrostatic forces between the ions in the lattice. Lots of energy is needed to break these forces, so the melting point is high.",
@@ -251,6 +295,33 @@ window.CONTENT_CHEMISTRY = (function () {
                  "<strong>For exothermic reactions:</strong> Products are LOWER than reactants. Energy has been released.",
                  "<strong>For endothermic reactions:</strong> Products are HIGHER than reactants. Energy has been absorbed.",
                  "Both types have an 'energy hump' in the middle. This is the <strong>activation energy</strong>, the minimum energy needed to start the reaction."],
+          diagram: {
+            alt: 'Exothermic and endothermic reaction profiles side by side',
+            caption: 'Exothermic: products end lower. Endothermic: products end higher. Both have an activation-energy hump.',
+            svg: '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">' +
+              '<text x="115" y="20" text-anchor="middle" font-size="12" fill="#c2410c" font-weight="700">EXOTHERMIC</text>' +
+              '<text x="345" y="20" text-anchor="middle" font-size="12" fill="#1d4ed8" font-weight="700">ENDOTHERMIC</text>' +
+              '<line x1="20" y1="180" x2="220" y2="180" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="20" y1="40" x2="20" y2="180" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<text x="14" y="100" text-anchor="end" font-size="10" fill="#4a5165">Energy</text>' +
+              '<text x="120" y="200" text-anchor="middle" font-size="10" fill="#4a5165">progress &rarr;</text>' +
+              '<path d="M 35 80 Q 90 30 130 80 L 200 150" stroke="#c2410c" stroke-width="2.5" fill="none"/>' +
+              '<line x1="30" y1="80" x2="50" y2="80" stroke="#1a1f2e" stroke-dasharray="2 2"/>' +
+              '<line x1="180" y1="150" x2="210" y2="150" stroke="#1a1f2e" stroke-dasharray="2 2"/>' +
+              '<text x="55" y="76" font-size="10" fill="#1a1f2e">reactants</text>' +
+              '<text x="155" y="146" font-size="10" fill="#1a1f2e">products</text>' +
+              '<line x1="82" y1="80" x2="82" y2="40" stroke="#15803d" stroke-dasharray="3 3"/>' +
+              '<text x="88" y="55" font-size="9" fill="#15803d">activation E</text>' +
+              '<line x1="250" y1="180" x2="450" y2="180" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<line x1="250" y1="40" x2="250" y2="180" stroke="#1a1f2e" stroke-width="1.5"/>' +
+              '<text x="350" y="200" text-anchor="middle" font-size="10" fill="#4a5165">progress &rarr;</text>' +
+              '<path d="M 265 150 Q 320 30 360 80 L 430 90" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>' +
+              '<line x1="260" y1="150" x2="280" y2="150" stroke="#1a1f2e" stroke-dasharray="2 2"/>' +
+              '<line x1="410" y1="90" x2="440" y2="90" stroke="#1a1f2e" stroke-dasharray="2 2"/>' +
+              '<text x="285" y="146" font-size="10" fill="#1a1f2e">reactants</text>' +
+              '<text x="385" y="86" font-size="10" fill="#1a1f2e">products</text>' +
+            '</svg>'
+          },
           callout: { type: 'key', label: 'Activation energy', text: "Even an exothermic reaction needs energy to get started. That's why you need a spark to light a match, to give the reaction enough energy to overcome the activation energy barrier." } }
       ],
       keyPoints: [

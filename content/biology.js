@@ -22,7 +22,34 @@ window.CONTENT_BIOLOGY = (function () {
           callout: { type: 'key', label: 'Quick rule', text: "If it has a nucleus, it's eukaryotic. If it doesn't, it's prokaryotic. Bacteria are the main prokaryote you need to know." } },
         { h: "Animal cells",
           body: ["All animal cells contain these parts:",
-                 "<ul><li><strong>Nucleus</strong>, holds the DNA, controls the cell</li><li><strong>Cytoplasm</strong>, jelly-like fluid where chemical reactions happen</li><li><strong>Cell membrane</strong>, thin layer around the outside, controls what goes in and out</li><li><strong>Mitochondria</strong>, where aerobic respiration happens, releases energy</li><li><strong>Ribosomes</strong>, where proteins are made</li></ul>"] },
+                 "<ul><li><strong>Nucleus</strong>, holds the DNA, controls the cell</li><li><strong>Cytoplasm</strong>, jelly-like fluid where chemical reactions happen</li><li><strong>Cell membrane</strong>, thin layer around the outside, controls what goes in and out</li><li><strong>Mitochondria</strong>, where aerobic respiration happens, releases energy</li><li><strong>Ribosomes</strong>, where proteins are made</li></ul>"],
+          diagram: {
+            alt: 'Animal cell with labelled nucleus, cytoplasm, cell membrane, mitochondria and ribosomes',
+            caption: 'Animal cell, with the five parts you must be able to label at Foundation tier.',
+            svg: '<svg viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg">' +
+              '<ellipse cx="210" cy="130" rx="150" ry="100" fill="#fef3c7" stroke="#c2410c" stroke-width="2"/>' +
+              '<circle cx="190" cy="130" r="36" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>' +
+              '<circle cx="190" cy="130" r="6" fill="#c2410c"/>' +
+              '<ellipse cx="260" cy="90" rx="22" ry="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>' +
+              '<path d="M242 90 Q252 85 262 90 Q272 95 278 90" stroke="#15803d" stroke-width="1" fill="none"/>' +
+              '<ellipse cx="140" cy="180" rx="22" ry="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>' +
+              '<path d="M122 180 Q132 175 142 180 Q152 185 158 180" stroke="#15803d" stroke-width="1" fill="none"/>' +
+              '<circle cx="265" cy="160" r="3" fill="#1d4ed8"/><circle cx="275" cy="170" r="3" fill="#1d4ed8"/>' +
+              '<circle cx="255" cy="175" r="3" fill="#1d4ed8"/><circle cx="245" cy="180" r="3" fill="#1d4ed8"/>' +
+              '<circle cx="270" cy="180" r="3" fill="#1d4ed8"/><circle cx="160" cy="100" r="3" fill="#1d4ed8"/>' +
+              '<line x1="190" y1="130" x2="50" y2="50" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<text x="48" y="44" text-anchor="end" font-size="11" fill="#1a1f2e" font-weight="500">nucleus</text>' +
+              '<line x1="260" y1="90" x2="400" y2="50" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<text x="402" y="44" font-size="11" fill="#15803d" font-weight="500">mitochondria</text>' +
+              '<line x1="265" y1="160" x2="400" y2="180" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<text x="402" y="184" font-size="11" fill="#1d4ed8" font-weight="500">ribosomes</text>' +
+              '<line x1="350" y1="130" x2="430" y2="120" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<text x="395" y="240" font-size="11" fill="#c2410c" font-weight="500">cell membrane</text>' +
+              '<line x1="350" y1="130" x2="395" y2="235" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<line x1="220" y1="200" x2="120" y2="240" stroke="#1a1f2e" stroke-width="0.7"/>' +
+              '<text x="118" y="244" text-anchor="end" font-size="11" fill="#1a1f2e" font-weight="500">cytoplasm</text>' +
+            '</svg>'
+          } },
         { h: "Plant cells",
           body: ["Plant cells have everything animal cells have, PLUS three extras:",
                  "<ul><li><strong>Cell wall</strong>, made of cellulose, gives the cell strength and shape</li><li><strong>Chloroplasts</strong>, where photosynthesis happens, contain the green pigment chlorophyll</li><li><strong>Permanent vacuole</strong>, filled with cell sap, keeps the cell rigid (turgid)</li></ul>",
@@ -294,7 +321,32 @@ window.CONTENT_BIOLOGY = (function () {
                  "<strong>Reflex arc</strong> for an automatic, fast response (e.g. pulling your hand from a hot object):",
                  "<ul><li><strong>Stimulus</strong> &rarr; receptor (in the skin)</li><li>Signal travels along a <strong>sensory neurone</strong> to the spinal cord</li><li>A <strong>relay neurone</strong> in the spinal cord passes the signal to a <strong>motor neurone</strong></li><li>Motor neurone carries the signal to the muscle (effector)</li><li>Muscle contracts (response, e.g. pulling hand away)</li></ul>",
                  "Reflexes are <strong>automatic and rapid</strong> because the signal doesn't have to go to the brain, only to the spinal cord. This helps protect you from harm.",
-                 "Between two neurones is a small gap called a <strong>synapse</strong>. The signal crosses the synapse using chemicals."] },
+                 "Between two neurones is a small gap called a <strong>synapse</strong>. The signal crosses the synapse using chemicals."],
+          diagram: {
+            alt: 'Reflex arc: stimulus to receptor to sensory neurone, relay neurone in spinal cord, motor neurone to effector',
+            caption: 'Reflex arc: signal travels via the spinal cord, bypassing the brain for speed.',
+            svg: '<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">' +
+              '<text x="40" y="30" font-size="11" fill="#c2410c" font-weight="700">STIMULUS</text>' +
+              '<text x="40" y="45" font-size="10" fill="#4a5165">(hot object)</text>' +
+              '<circle cx="60" cy="80" r="10" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>' +
+              '<text x="76" y="84" font-size="10" fill="#1a1f2e">receptor</text>' +
+              '<path d="M 60 90 L 60 130 L 200 130" stroke="#1d4ed8" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>' +
+              '<defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#1d4ed8"/></marker></defs>' +
+              '<text x="100" y="122" font-size="10" fill="#1d4ed8">sensory neurone</text>' +
+              '<rect x="200" y="105" width="60" height="50" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>' +
+              '<text x="230" y="128" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">spinal</text>' +
+              '<text x="230" y="142" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">cord</text>' +
+              '<text x="230" y="98" text-anchor="middle" font-size="9" fill="#15803d">(relay neurone)</text>' +
+              '<path d="M 260 130 L 400 130 L 400 90" stroke="#c2410c" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>' +
+              '<defs><marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#c2410c"/></marker></defs>' +
+              '<text x="320" y="122" font-size="10" fill="#c2410c">motor neurone</text>' +
+              '<circle cx="400" cy="80" r="10" fill="#fef3c7" stroke="#a16207" stroke-width="1.5"/>' +
+              '<text x="384" y="84" text-anchor="end" font-size="10" fill="#1a1f2e">effector</text>' +
+              '<text x="380" y="55" font-size="10" fill="#4a5165">(muscle)</text>' +
+              '<text x="380" y="40" font-size="11" fill="#c2410c" font-weight="700">RESPONSE</text>' +
+              '<text x="230" y="180" text-anchor="middle" font-size="10" fill="#4a5165" font-style="italic">brain not involved &mdash; reflex is fast and automatic</text>' +
+            '</svg>'
+          } },
         { h: "The brain and eye (overview)",
           body: ["The brain is the most complex organ. It has three main parts you should know:",
                  "<ul><li><strong>Cerebral cortex</strong>, the wrinkly outer layer, involved in language, memory, consciousness</li><li><strong>Cerebellum</strong>, at the back/bottom, controls balance and coordination of movements</li><li><strong>Medulla</strong>, deep down, controls unconscious actions like heartbeat and breathing</li></ul>",
